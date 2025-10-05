@@ -4,13 +4,14 @@ const {connectDb} = require('./connection');
 const URL = require("./models/url");
 const ejs = require("ejs");
 const path = require("path");
+require('dotenv').config();
 
 
 
 const app = express()
 const PORT = 8001;
 
-connectDb("mongodb://127.0.0.1:27017/urlData")
+connectDb(process.env.URL)
 .catch( () => {
     console.log("unable to connect");
 })
